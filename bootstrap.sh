@@ -15,11 +15,11 @@
 # ----------------------------------------
 
 PLUGIN_NAME="$(basename $(dirname $(realpath $0)))"  # name of current directory
-PLUGIN_TITLE='My ChRIS Plugin'
-SCRIPT_NAME='commandname'
-DESCRIPTION='A ChRIS plugin to do something awesome'
+PLUGIN_TITLE='ASP Quality Control'
+SCRIPT_NAME='verify_fit'
+DESCRIPTION='Assess quality of surfaces and create visualization reports'
 ORGANIZATION='FNNDSC'
-EMAIL='dev@babyMRI.org'
+EMAIL='Jennings.Zhang@childrens.harvard.edu'
 
 # Github Actions: automatically test and build your code.
 # https://github.com/FNNDSC/python-chrisapp-template/wiki/Continuous-Integration
@@ -46,7 +46,7 @@ ENABLE_ACTIONS_BUILD=yes
 # STEP 2. Uncomment the line where it says READY=yes
 # ----------------------------------------
 
-#READY=yes
+READY=yes
 
 # ----------------------------------------
 # STEP 3. Run: ./bootstrap.sh
