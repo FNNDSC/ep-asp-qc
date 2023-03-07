@@ -8,6 +8,8 @@
 # N.B.: This script does not care to show good errors nor validate its arguments.
 # My recommendation is to write a wrapper for this script, such as verify_surfaces.py
 #
+# TODO: it'd be nice to check flip orientation to make sure surface sides are correct.
+#
 # Copyright Alan C. Evans
 # Professor of Neurology
 # McGill University
@@ -95,6 +97,27 @@ my $xpos5 = 4.84*$tilesize;
 push( @DrawText, ( '-annotate', "0x0+${xpos}+${ypos}", "$main_title" ) );
 
 ################################################################################
+# CALCULATE MID SURFACES
+################################################################################
+
+# This step is performed early because average_surfaces will fail if the input
+# is weird, e.g. accidentally provided a left surface where right was expected
+
+my $mid_left = "${tmpdir}/mid_surface_left.obj";
+my $mid_right = "${tmpdir}/mid_surface_right.obj";
+
+my @all_left_surfaces = ();
+my @all_right_surfaces = ();
+
+for ( my $i = 0;  $i < @surface_args;  $i += 3 ) {
+  push @all_left_surfaces, $surface_args[$i + 1];
+  push @all_right_surfaces, $surface_args[$i + 2];
+}
+
+&run('average_surfaces', $mid_left, 'none', 'none', '1', @all_left_surfaces);
+&run('average_surfaces', $mid_right, 'none', 'none', '1', @all_right_surfaces);
+
+################################################################################
 # DRAW SURFACES
 ################################################################################
 
@@ -146,25 +169,6 @@ for ( my $i = 0;  $i < @surface_args;  $i += 3 ) {
   $ypos -= 0.10*$tilesize;
   $ypos += 0.065*$tilesize;
 }
-
-################################################################################
-# CALCULATE MID SURFACES
-################################################################################
-
-my $mid_left = "${tmpdir}/mid_surface_left.obj";
-my $mid_right = "${tmpdir}/mid_surface_right.obj";
-
-my @all_left_surfaces = ();
-my @all_right_surfaces = ();
-
-for ( my $i = 0;  $i < @surface_args;  $i += 3 ) {
-  push @all_left_surfaces, $surface_args[$i + 1];
-  push @all_right_surfaces, $surface_args[$i + 2];
-}
-
-`average_surfaces $mid_left none none 1 @all_left_surfaces`;
-`average_surfaces $mid_right none none 1 @all_right_surfaces`;
-
 
 ################################################################################
 # DRAW DATA VALUES OVER MID SURFACES
