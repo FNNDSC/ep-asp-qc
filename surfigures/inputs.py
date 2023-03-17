@@ -14,10 +14,10 @@ from chris_plugin import PathMapper
 
 from surfigures.options import Options
 
-LEFT_WORDS = ('left', 'Left', 'LEFT')
-RIGHT_WORDS = ('right', 'Right', 'RIGHT')
+LEFT_WORDS = ('left', 'Left', 'LEFT', 'lh.')
+RIGHT_WORDS = ('right', 'Right', 'RIGHT', 'rh.')
 SIDES: tuple[str, ...] = (*LEFT_WORDS, *RIGHT_WORDS)
-SEPARATORS = ('-', '_', ' ')
+SEPARATORS = ('-', '_', '.', ' ')
 
 
 @dataclass(frozen=True)
@@ -367,6 +367,5 @@ def is_side_folder(folder: Path, side: str) -> bool:
 
 def corresponding_right_path_to(path: Path) -> Optional[Path]:
     possible_paths = map(lambda l, r: path.with_name(path.name.replace(l, r)), LEFT_WORDS, RIGHT_WORDS)
-    possible_right_paths = filter(lambda p: 'right' in p.name.lower(), possible_paths)
-    existing_right_paths = filter(lambda f: f.exists(), possible_right_paths)
+    existing_right_paths = filter(lambda f: f.exists(), possible_paths)
     return next(existing_right_paths, None)
