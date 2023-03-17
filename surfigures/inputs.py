@@ -72,8 +72,8 @@ class InputSet:
 
     title: str
     src: tuple[Path, ...]
-    surfaces: Sequence[WholeBrainLayer]
-    data_files: Sequence[VertexDataFiles]
+    surfaces: list[WholeBrainLayer]
+    data_files: list[VertexDataFiles]
 
     def expand(self, options: Options, tmp_dir: Path) -> SortedInputs:
         """
@@ -81,7 +81,8 @@ class InputSet:
         """
         # TODO use surface-stats to sort inputs by surface area
         # for now, we depend on the arbitrary order given by Path.glob
-        surfaces = self.surfaces
+        surfaces = self.surfaces.copy()
+        surfaces.sort(key=surface_area_of_left, reverse=True)
         data_files = [
             VertexDataGroup(f.caption, f.left, f.right, *options.range_for(f.left))
             for f in self.data_files
@@ -143,6 +144,21 @@ class InputSet:
         left_files = find_side_files(folder, ext, LEFT_WORDS)
         pairs = find_right_files_for(left_files)
         return validate_pairs(pairs)
+
+
+def surface_area_of_left(l: WholeBrainLayer) -> float:
+    surface = l.left
+    cmd = ('surface-stats', '-face_area', surface)
+    str_cmd = shlex.join(map(str, cmd))
+    p = sp.run(cmd, text=True, stdout=sp.DEVNULL, stderr=sp.PIPE)
+    if p.returncode != 0:
+        raise InputError(f'Command failed: {str_cmd}')
+    try:
+        area = float(p.stderr.rsplit('=', 1)[-1].strip())
+    except ValueError:
+        raise InputError(f'Unable to parse output from command: {str_cmd} :::: output: {output}')
+    logger.info('running: {} => Total Surface Area = {}', str_cmd, area)
+    return area
 
 
 def calc_abs(orig: VertexDataGroup, result: VertexDataGroup) -> VertexDataGroup:
