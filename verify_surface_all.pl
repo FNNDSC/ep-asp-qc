@@ -198,8 +198,9 @@ for ( my $i = 0;  $i < @data_args;  $i += 5 ) {
     push(@mont_args, $tile_image);
   }
   foreach my $pos ('top', 'bottom') {
-    make_surface( $mid_rms_left, $mid_rms_right, "${tmpdir}/mid_${pos}.rgb", $pos );
-    push(@mont_args, "${tmpdir}/mid_${pos}.rgb");
+    my $tile_image = "${tmpdir}/${num_rows}_mid_$pos.rgb";
+    make_surface( $mid_rms_left, $mid_rms_right, $tile_image, $pos );
+    push(@mont_args, $tile_image);
   }
   $num_rows += 1;
   foreach my $pos ('flipped', 'right', 'left') {

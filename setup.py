@@ -19,18 +19,19 @@ def get_version(rel_path: str) -> str:
 
 
 setup(
-    name='asp-qc',
-    version=get_version('verify_fit.py'),
-    description='Assess quality of surfaces and create visualization reports',
-    author='FNNDSC',
+    name='surfigures',
+    version=get_version('surfigures/__init__.py'),
+    packages=['surfigures'],
+    description='Create PNG figures of surfaces and vertex-wise data',
+    author='Jennings Zhang',
     author_email='Jennings.Zhang@childrens.harvard.edu',
-    url='https://github.com/FNNDSC/ep-asp-qc',
-    py_modules=['verify_fit'],
-    install_requires=['chris_plugin'],
+    url='https://github.com/FNNDSC/pl-surfigures',
+    install_requires=['chris_plugin==0.2.0a1', 'loguru~=0.6.0'],
     license='MIT',
+    scripts=['verify_surface_all.pl'],
     entry_points={
         'console_scripts': [
-            'verify_fit = verify_fit:main'
+            'surfigures = surfigures.__main__:main'
         ]
     },
     classifiers=[

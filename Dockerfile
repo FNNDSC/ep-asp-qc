@@ -1,19 +1,15 @@
-# Python version can be changed, e.g.
-# FROM python:3.8
-# FROM docker.io/fnndsc/conda:python3.10.2-cuda11.6.0
-FROM docker.io/python:3.11.0-slim-bullseye
+FROM docker.io/fnndsc/pl-surfigures:base-1
 
-LABEL org.opencontainers.image.authors="FNNDSC <Jennings.Zhang@childrens.harvard.edu>" \
-      org.opencontainers.image.title="ASP Quality Control" \
-      org.opencontainers.image.description="Assess quality of surfaces and create visualization reports"
+LABEL org.opencontainers.image.authors="FNNDSC <dev@babyMRI.org>" \
+      org.opencontainers.image.title="MNI Surface Figures" \
+      org.opencontainers.image.description="A ChRIS plugin to create PNG figures of surfaces and vertex-wise data"
 
-WORKDIR /usr/local/src/ep-asp-qc
+RUN apt-get update && apt-get install -y imagemagick && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+WORKDIR /usr/local/src/pl-surfigures
 
 COPY . .
 ARG extras_require=none
 RUN pip install ".[${extras_require}]"
 
-CMD ["verify_fit"]
+CMD ["surfigures"]
