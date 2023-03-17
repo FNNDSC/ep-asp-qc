@@ -2,11 +2,14 @@
 Helper functions to find input files for ``verify_surface_all.pl``
 based on naming conventions.
 """
-
+import shlex
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence, Iterator, Optional, Callable, Iterable, TypeVar, Generic
+import subprocess as sp
+from tempfile import NamedTemporaryFile
 
+from loguru import logger
 from chris_plugin import PathMapper
 
 from surfigures.options import Options
@@ -72,7 +75,10 @@ class InputSet:
     surfaces: Sequence[WholeBrainLayer]
     data_files: Sequence[VertexDataFiles]
 
-    def into_sorted(self, options: Options) -> SortedInputs:
+    def expand(self, options: Options, tmp_dir: Path) -> SortedInputs:
+        """
+        Run the extra computations specified by ``options`` and then sort the inputs.
+        """
         # TODO use surface-stats to sort inputs by surface area
         # for now, we depend on the arbitrary order given by Path.glob
         surfaces = self.surfaces
@@ -80,12 +86,25 @@ class InputSet:
             VertexDataGroup(f.caption, f.left, f.right, *options.range_for(f.left))
             for f in self.data_files
         ]
-        # TODO calculate absolute values here
+        data_files += self._abs(data_files, options.abs, tmp_dir)
         return SortedInputs(
             title=self.title,
             surfaces=surfaces,
             data=data_files
         )
+
+    @staticmethod
+    def _abs(data_files: list[VertexDataGroup], suffixes: Iterable[str], tmp_dir: Path) -> list[VertexDataGroup]:
+        """
+        For every data file which has a file extension that is one of the given suffixes,
+        compute the absolute values to a file in ``tmp_dir``. Returns created files.
+        """
+        check_needs_abs = ((orig, abs_files(orig, suffixes, tmp_dir)) for orig in data_files)
+        return [
+            calc_abs(orig, result)
+            for orig, result in check_needs_abs
+            if result is not None
+        ]
 
     @classmethod
     def from_folders(cls, left_folder: Path, right_folder: Path, data_file_suffix: str) -> 'InputSet':
@@ -124,6 +143,40 @@ class InputSet:
         left_files = find_side_files(folder, ext, LEFT_WORDS)
         pairs = find_right_files_for(left_files)
         return validate_pairs(pairs)
+
+
+def calc_abs(orig: VertexDataGroup, result: VertexDataGroup) -> VertexDataGroup:
+    for files in ((orig.left, result.left), (orig.right, result.right)):
+        cmd = ('vertstats_math', '-old_style_file', '-abs', *files)
+        str_cmd = shlex.join(map(str, cmd))
+        logger.info('running: {}', str_cmd)
+        p = sp.run(cmd, stdout=sp.DEVNULL, stderr=sp.STDOUT)
+        if p.returncode != 0:
+            raise InputError(f'Command failed: {str_cmd}')
+    return result
+
+
+def abs_files(g: VertexDataGroup, suffixes: Iterable[str], tmp_dir: Path) -> Optional[VertexDataGroup]:
+    """
+    If the abs function should be applied to the files of ``g``,
+    return file names for where the output files should be written to.
+    """
+    for suffix in suffixes:
+        left = name_tempfile_if_endswith(g.left, suffix, '.abs', tmp_dir)
+        right = name_tempfile_if_endswith(g.right, suffix, '.abs', tmp_dir)
+        if left and right:
+            return VertexDataGroup(g.caption, left, right, '0.0', g.max)
+    return None
+
+
+def name_tempfile_if_endswith(path: Path, suffix: str, prefix_for_suffix: str, tmp_dir: Path) -> Optional[Path]:
+    s = path.name.rsplit(suffix, maxsplit=1)
+    if len(s) != 2:
+        return None
+    stem, _ = s
+    parent = tmp_dir / path.parent.name
+    parent.mkdir(exist_ok=True)
+    return parent / (stem + prefix_for_suffix + suffix)
 
 
 def find_side_files(folder: Path, ext: str, sides: Iterable[str] = ('',)) -> Iterator[Path]:

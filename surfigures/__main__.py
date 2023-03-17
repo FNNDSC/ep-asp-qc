@@ -42,10 +42,14 @@ def main(given_args, inputdir: Path, outputdir: Path):
     logger.debug('Using {} threads', nproc)
 
     with ThreadPoolExecutor(max_workers=nproc) as pool:
-        results = pool.map(__call_surfigures, filter(is_some, usable_mapper), itertools.repeat(options))
+        timings = pool.map(__call_surfigures, filter(is_some, usable_mapper), itertools.repeat(options))
 
-    if not all(results):
+    timings = list(timings)
+    if any(t is None for t in timings):
+        logger.warning("errors occurred, see above.")
         sys.exit(1)
+    average = sum(timings) / len(timings)
+    logger.info(f'All done! Average time: {average:.1f}s')
 
 
 def __call_surfigures(t, o):
