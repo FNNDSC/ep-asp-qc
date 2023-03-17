@@ -331,6 +331,7 @@ class InputFinder:
 
     def _sided_folders_mapper(self) -> Iterator[tuple[tuple[Path, Path] | InputError, Path]]:
         left_folder_mapper = PathMapper.dir_mapper_deep(self.input_dir, self.output_dir,
+                                                        fail_if_empty=False,
                                                         filter=is_left_folder_containing_obj)
         for left_folder, sub_output in left_folder_mapper:
             right_folder = corresponding_right_path_to(left_folder)
@@ -342,7 +343,9 @@ class InputFinder:
             yield pair, sub_output
 
     def _subject_folders_mapper(self) -> Iterator[tuple[Path, Path]]:
-        mapper = PathMapper.dir_mapper_deep(self.input_dir, self.output_dir, filter=is_unsided_subjects_folder)
+        mapper = PathMapper.dir_mapper_deep(self.input_dir, self.output_dir,
+                                            fail_if_empty=False,
+                                            filter=is_unsided_subjects_folder)
         return iter(mapper)
 
 
