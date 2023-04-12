@@ -52,6 +52,17 @@ To print its available options, run:
 apptainer exec docker://fnndsc/pl-surfigures surfigures --help
 ```
 
+### Colors
+
+Valid values for the options `--font-color` and `--background-color` are described here: https://imagemagick.org/script/color.php
+
+Valid values for `--color-map` are described in `colour_object -help`.
+
+> gray, hot, hot_inv, cold_metal, cold_metal_inv,
+> green_metal, green_metal_inv, lime_metal, lime_metal_inv,
+> red_metal, red_metal_inv, purple_metal, purple_metal_inv,
+> spectral, red, green, blue, label, rgba
+
 ## Examples
 
 `surfigures` requires two positional arguments: a directory containing
@@ -59,4 +70,23 @@ input data, and a directory where to create output data.
 
 ```shell
 apptainer exec docker://fnndsc/pl-surfigures:latest surfigures incoming/ outgoing/
+```
+
+For a dark theme:
+
+```shell
+apptainer exec docker://fnndsc/pl-surfigures:latest surfigures \
+    --font-color green1 --background-color black \
+    incoming/ outgoing/
+```
+
+Let's say your vertex-wise data files use the file extensions `.area.s5`
+and `.depth.s5`, where the range for values of `.area.s5` data are between
+0 and 1, and the range for values of `.depth.s5` is `-0.5` to `0.5`.
+Use the `--range` option to specify this. The format is`file_extension:min:max`, multiple values are comma-delimited.
+
+```shell
+apptainer exec docker://fnndsc/pl-surfigures:latest surfigures \
+    --range .area.s5:0.0:1.0,.depth.s5:0.0:5.0 \
+    incoming/ outgoing/
 ```

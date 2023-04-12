@@ -1,58 +1,88 @@
-average_surfaces /tmp/QkCkoQwbLy/mid_surface_left.obj none none 1 /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj 
-1:  /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj
-2:  /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj
-Objects output.
-average_surfaces /tmp/QkCkoQwbLy/mid_surface_right.obj none none 1 /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj 
-1:  /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
-2:  /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
-Objects output.
-ray_trace -shadows -output /tmp/QkCkoQwbLy/1_hemi_default.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj -bg white -crop -view 0.77 -0.18 -0.6 0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/1_hemi_left.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/1_hemi_right.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/1_surf_top.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -top 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/1_surf_bottom.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -bottom 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/2_hemi_flipped.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/2_hemi_right.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/2_hemi_left.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/2_surf_front.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -front 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/2_surf_back.rgb /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj -bg white -crop -back 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/3_hemi_default.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj -bg white -crop -view 0.77 -0.18 -0.6 0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/3_hemi_left.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/3_hemi_right.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/3_surf_top.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -top 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/3_surf_bottom.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -bottom 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/4_hemi_flipped.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/4_hemi_right.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/4_hemi_left.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/4_surf_front.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -front 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/4_surf_back.rgb /share/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /share/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj -bg white -crop -back 
-colour_object /tmp/QkCkoQwbLy/mid_surface_left.obj /share/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_left.txt /tmp/QkCkoQwbLy/4_mid_rms_left.obj spectral 0.0 10.0 
-Value range: 1.4768 3.98805
-colour_object /tmp/QkCkoQwbLy/mid_surface_right.obj /share/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_right.txt /tmp/QkCkoQwbLy/4_mid_rms_right.obj spectral 0.0 10.0 
-Value range: 1.47367 4.02445
-ray_trace -shadows -output /tmp/QkCkoQwbLy/5_mid_left_default.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj -bg white -crop -view 0.77 -0.18 -0.6 0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/5_mid_left_left.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/5_mid_left_right.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/5_mid_top.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -top 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/5_mid_bottom.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -bottom 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/6_mid_right_flipped.rgb /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/6_mid_right_right.rgb /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/6_mid_right_left.rgb /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/6_mid_front.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -front 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/6_mid_back.rgb /tmp/QkCkoQwbLy/4_mid_rms_left.obj /tmp/QkCkoQwbLy/4_mid_rms_right.obj -bg white -crop -back 
-colour_object /tmp/QkCkoQwbLy/mid_surface_left.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.smtherr.txt /tmp/QkCkoQwbLy/6_mid_rms_left.obj spectral 0.0 2.0 
-Value range: 7.19126e-09 42.6139
-colour_object /tmp/QkCkoQwbLy/mid_surface_right.obj /share/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.smtherr.txt /tmp/QkCkoQwbLy/6_mid_rms_right.obj spectral 0.0 2.0 
-Value range: 8.08211e-09 64.7933
-ray_trace -shadows -output /tmp/QkCkoQwbLy/7_mid_left_default.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj -bg white -crop -view 0.77 -0.18 -0.6 0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/7_mid_left_left.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/7_mid_left_right.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/7_mid_top.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -top 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/7_mid_bottom.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -bottom 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/8_mid_right_flipped.rgb /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/8_mid_right_right.rgb /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -right 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/8_mid_right_left.rgb /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -left 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/8_mid_front.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -front 
-ray_trace -shadows -output /tmp/QkCkoQwbLy/8_mid_back.rgb /tmp/QkCkoQwbLy/6_mid_rms_left.obj /tmp/QkCkoQwbLy/6_mid_rms_right.obj -bg white -crop -back 
-montage -tile 5x8 -background white -geometry 200x200+1+1 /tmp/QkCkoQwbLy/1_hemi_default.rgb /tmp/QkCkoQwbLy/1_hemi_left.rgb /tmp/QkCkoQwbLy/1_hemi_right.rgb /tmp/QkCkoQwbLy/1_surf_top.rgb /tmp/QkCkoQwbLy/1_surf_bottom.rgb /tmp/QkCkoQwbLy/2_hemi_flipped.rgb /tmp/QkCkoQwbLy/2_hemi_right.rgb /tmp/QkCkoQwbLy/2_hemi_left.rgb /tmp/QkCkoQwbLy/2_surf_front.rgb /tmp/QkCkoQwbLy/2_surf_back.rgb /tmp/QkCkoQwbLy/3_hemi_default.rgb /tmp/QkCkoQwbLy/3_hemi_left.rgb /tmp/QkCkoQwbLy/3_hemi_right.rgb /tmp/QkCkoQwbLy/3_surf_top.rgb /tmp/QkCkoQwbLy/3_surf_bottom.rgb /tmp/QkCkoQwbLy/4_hemi_flipped.rgb /tmp/QkCkoQwbLy/4_hemi_right.rgb /tmp/QkCkoQwbLy/4_hemi_left.rgb /tmp/QkCkoQwbLy/4_surf_front.rgb /tmp/QkCkoQwbLy/4_surf_back.rgb /tmp/QkCkoQwbLy/5_mid_left_default.rgb /tmp/QkCkoQwbLy/5_mid_left_left.rgb /tmp/QkCkoQwbLy/5_mid_left_right.rgb /tmp/QkCkoQwbLy/5_mid_top.rgb /tmp/QkCkoQwbLy/5_mid_bottom.rgb /tmp/QkCkoQwbLy/6_mid_right_flipped.rgb /tmp/QkCkoQwbLy/6_mid_right_right.rgb /tmp/QkCkoQwbLy/6_mid_right_left.rgb /tmp/QkCkoQwbLy/6_mid_front.rgb /tmp/QkCkoQwbLy/6_mid_back.rgb /tmp/QkCkoQwbLy/7_mid_left_default.rgb /tmp/QkCkoQwbLy/7_mid_left_left.rgb /tmp/QkCkoQwbLy/7_mid_left_right.rgb /tmp/QkCkoQwbLy/7_mid_top.rgb /tmp/QkCkoQwbLy/7_mid_bottom.rgb /tmp/QkCkoQwbLy/8_mid_right_flipped.rgb /tmp/QkCkoQwbLy/8_mid_right_right.rgb /tmp/QkCkoQwbLy/8_mid_right_left.rgb /tmp/QkCkoQwbLy/8_mid_front.rgb /tmp/QkCkoQwbLy/8_mid_back.rgb /tmp/QkCkoQwbLy/mont.png 
-convert -box white -stroke green -pointsize 16 -font DejaVu-Sans -annotate 0x0+400+15 same_folder -annotate 0x0+637+28 L -annotate 0x0+768+28 R -annotate 0x0+837+28 R -annotate 0x0+968+28 L -annotate 0x0+637+224 R -annotate 0x0+768+224 L -annotate 0x0+837+224 L -annotate 0x0+968+224 R -annotate 0x0+400+215 mni_icbm_01_gray_surface_81920.obj -annotate 0x0+637+441 L -annotate 0x0+768+441 R -annotate 0x0+837+441 R -annotate 0x0+968+441 L -annotate 0x0+637+637 R -annotate 0x0+768+637 L -annotate 0x0+837+637 L -annotate 0x0+968+637 R -annotate 0x0+400+628 mni_icbm_01_white_surface_81920.obj -annotate 0x0+340+1041 mni_icbm_01_native_rms_tlaplace_30mm.txt -annotate 0x0+340+1441 mni_icbm_01_gray_surface_81920.smtherr.txt /tmp/QkCkoQwbLy/mont.png /share/outgoing/same_folder.png 
+average_surfaces /tmp/tmpcdj_i5gq/same_folder_left.obj none none 1 /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj
+average_surfaces /tmp/tmpcdj_i5gq/same_folder_right.obj none none 1 /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+colour_object /tmp/tmpcdj_i5gq/same_folder_left.obj /examples/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_left.txt /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj spectral 0.0 10.0
+vertstats_stats /examples/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_left.txt
+colour_object /tmp/tmpcdj_i5gq/same_folder_right.obj /examples/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_right.txt /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj spectral 0.0 10.0
+vertstats_stats /examples/incoming/same_folder/mni_icbm_01_native_rms_tlaplace_30mm_right.txt
+colour_object /tmp/tmpcdj_i5gq/same_folder_left.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.smtherr.txt /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj spectral 0.0 2.0
+vertstats_stats /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.smtherr.txt
+colour_object /tmp/tmpcdj_i5gq/same_folder_right.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.smtherr.txt /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj spectral 0.0 2.0
+vertstats_stats /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.smtherr.txt
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/0_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -top /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/1_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -bottom /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/2_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -view 0.77 -0.18 -0.6 0.55 0.6 0.55 /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/3_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -left /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/4_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -right /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/5_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/6_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -front /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/7_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -back /examples/incoming/same_folder/mni_icbm_01_gray_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/8_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/9_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -left /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/10_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400 -right /examples/incoming/same_folder/mni_icbm_01_gray_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/11_mni_icbm_01_gray_surface_81920.obj.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/12_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -top /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/13_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -bottom /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/14_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -view 0.77 -0.18 -0.6 0.55 0.6 0.55 /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/15_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -left /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/16_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -right /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/17_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/18_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -front /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/19_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -back /examples/incoming/same_folder/mni_icbm_01_white_surface_left_81920.obj /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/20_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/21_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -left /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/22_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400 -right /examples/incoming/same_folder/mni_icbm_01_white_surface_right_81920.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/23_mni_icbm_01_white_surface_81920.obj.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/24_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -top /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/25_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -bottom /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/26_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -view 0.77 -0.18 -0.6 0.55 0.6 0.55 /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/27_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -left /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/28_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -right /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/29_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/30_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -front /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/31_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -back /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_native_rms_tlaplace_30mm_left.txt_spectral_0.0_10.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/32_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/33_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -left /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/34_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400 -right /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_native_rms_tlaplace_30mm_right.txt_spectral_0.0_10.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/35_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/36_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -top /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/37_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -bottom /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/38_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -view 0.77 -0.18 -0.6 0.55 0.6 0.55 /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/39_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -left /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/40_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -right /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/41_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/42_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -front /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/43_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -back /tmp/tmpcdj_i5gq/same_folder_left.obj_mni_icbm_01_gray_surface_left_81920.smtherr.txt_spectral_0.0_2.0.obj /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/44_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -view -0.77 -0.18 -0.6 -0.55 0.6 0.55 /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/45_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -left /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/46_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400 -right /tmp/tmpcdj_i5gq/same_folder_right.obj_mni_icbm_01_gray_surface_right_81920.smtherr.txt_spectral_0.0_2.0.obj
+ray_trace -shadows -output /tmp/tmpcdj_i5gq/47_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb -bg black -crop -size 400 400
+montage -tile 6x8 -background black -geometry 400x400+1+50 /tmp/tmpcdj_i5gq/0_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/1_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/2_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/3_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/4_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/5_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/6_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/7_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/8_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/9_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/10_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/11_mni_icbm_01_gray_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/12_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/13_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/14_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/15_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/16_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/17_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/18_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/19_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/20_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/21_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/22_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/23_mni_icbm_01_white_surface_81920.obj.rgb /tmp/tmpcdj_i5gq/24_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/25_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/26_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/27_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/28_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/29_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/30_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/31_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/32_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/33_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/34_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/35_mni_icbm_01_native_rms_tlaplace_30mm.txt.rgb /tmp/tmpcdj_i5gq/36_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/37_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/38_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/39_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/40_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/41_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/42_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/43_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/44_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/45_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/46_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/47_mni_icbm_01_gray_surface_81920.smtherr.txt.rgb /tmp/tmpcdj_i5gq/montage_output.png
+convert -box black -fill green1 -pointsize 28 -annotate 0x0+53+110 L -annotate 0x0+349+110 R -annotate 0x0+455+110 R -annotate 0x0+751+110 L -annotate 0x0+2071+130 '' -annotate 0x0+53+610 R -annotate 0x0+349+610 L -annotate 0x0+455+610 L -annotate 0x0+751+610 R -annotate 0x0+2071+630 '' -annotate 0x0+53+1110 L -annotate 0x0+349+1110 R -annotate 0x0+455+1110 R -annotate 0x0+751+1110 L -annotate 0x0+2071+1130 '' -annotate 0x0+53+1610 R -annotate 0x0+349+1610 L -annotate 0x0+455+1610 L -annotate 0x0+751+1610 R -annotate 0x0+2071+1630 '' -annotate 0x0+53+2110 L -annotate 0x0+349+2110 R -annotate 0x0+455+2110 R -annotate 0x0+751+2110 L -annotate 0x0+2071+2130 'Column0: 
+ Maximum: 3.98805
+ Minimum: 1.4768
+ Median:  3.0403
+ Mean:    3.01144
+ Stdev:   0.357987
+ Sum:     123355
+' -annotate 0x0+53+2610 R -annotate 0x0+349+2610 L -annotate 0x0+455+2610 L -annotate 0x0+751+2610 R -annotate 0x0+2071+2630 'Column0: 
+ Maximum: 4.02445
+ Minimum: 1.47367
+ Median:  3.04275
+ Mean:    3.00986
+ Stdev:   0.353593
+ Sum:     123290
+' -annotate 0x0+53+3110 L -annotate 0x0+349+3110 R -annotate 0x0+455+3110 R -annotate 0x0+751+3110 L -annotate 0x0+2071+3130 'Column0: 
+ Maximum: 42.6139
+ Minimum: 7.19126e-09
+ Median:  0.433313
+ Mean:    1.0035
+ Stdev:   1.64782
+ Sum:     41105.2
+' -annotate 0x0+53+3610 R -annotate 0x0+349+3610 L -annotate 0x0+455+3610 L -annotate 0x0+751+3610 R -annotate 0x0+2071+3630 'Column0: 
+ Maximum: 64.7933
+ Minimum: 8.08211e-09
+ Median:  0.428238
+ Mean:    1.00115
+ Stdev:   1.82946
+ Sum:     41009.1
+' -annotate 0x0+905+25 mni_icbm_01_gray_surface_81920.obj -annotate 0x0+905+1025 mni_icbm_01_white_surface_81920.obj -annotate 0x0+905+2025 mni_icbm_01_native_rms_tlaplace_30mm.txt -annotate 0x0+905+3025 mni_icbm_01_gray_surface_81920.smtherr.txt /tmp/tmpcdj_i5gq/montage_output.png /examples/outgoing/same_folder.png

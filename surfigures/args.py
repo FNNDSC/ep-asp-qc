@@ -11,13 +11,13 @@ parser.add_argument('-s', '--suffix', default='.txt', type=str,
 parser.add_argument('-o', '--output', default='{}.png', type=str,
                     help='output file template and file type. "{}" is replaced by the subject name.')
 
-# TODO: feature bloat.
-# This should be its own ChRIS plugin, https://github.com/FNNDSC/pl-abs
-# but I'm doing it here in Python because I am out of time!
-parser.add_argument('-a', '--abs', default='.disterr.txt', type=str,
-                    help='file extension of input files which should have their absolute values be taken.')
-
 parser.add_argument('-r', '--range', default='.disterr.txt:-2.0:2.0,.smtherr.txt:0.0:2.0',
                     type=str, help='Ranges for specific file extensions.')
 parser.add_argument('--min', type=str, default='0.0', help='Default range minimum value')
 parser.add_argument('--max', type=str, default='10.0', help='Default range maximum value')
+parser.add_argument('-b', '--background-color', type=str, default='white',
+                    help='Figure background color')
+parser.add_argument('-f', '--font-color', type=str, default='green',
+                    help='Figure labels font color')
+parser.add_argument('-c', '--color-map', type=str, default='spectral',
+                    help='color map to use for data value visualization')

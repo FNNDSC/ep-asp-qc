@@ -1,22 +1,26 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import Self
 
 
 @dataclass(frozen=True)
 class Options:
-    abs: Sequence[str]
     range: dict[str, tuple[str, str]]
     min: str
     max: str
+    bg: str
+    font_color: str
+    color_map: str
 
     @classmethod
-    def from_args(cls, args) -> 'Options':
+    def from_args(cls, args) -> Self:
         return cls(
-            abs=args.abs.split(','),
             range={s: (a, b) for s, a, b in map(_parse_range_arg, args.range.split(','))},
             min=args.min,
-            max=args.max
+            max=args.max,
+            bg=args.background_color,
+            font_color=args.font_color,
+            color_map=args.color_map,
         )
 
     def range_for(self, data_file: Path) -> tuple[str, str]:

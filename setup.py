@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import re
 
 _version_re = re.compile(r"(?<=^__version__ = (\"|'))(.+)(?=\"|')")
@@ -21,14 +21,13 @@ def get_version(rel_path: str) -> str:
 setup(
     name='surfigures',
     version=get_version('surfigures/__init__.py'),
-    packages=['surfigures'],
+    packages=find_packages('.' ,exclude='tests'),
     description='Create PNG figures of surfaces and vertex-wise data',
     author='Jennings Zhang',
     author_email='Jennings.Zhang@childrens.harvard.edu',
     url='https://github.com/FNNDSC/pl-surfigures',
     install_requires=['chris_plugin==0.2.0a1', 'loguru~=0.6.0'],
     license='MIT',
-    scripts=['verify_surface_all.pl'],
     entry_points={
         'console_scripts': [
             'surfigures = surfigures.__main__:main'

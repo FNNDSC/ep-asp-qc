@@ -10,7 +10,7 @@ from chris_plugin import chris_plugin
 from surfigures import DISPLAY_TITLE, __version__
 from surfigures.args import parser
 from surfigures.options import Options
-from surfigures.inputs import InputFinder
+from surfigures.inputs.find import SubjectMapper
 from concurrent.futures import ThreadPoolExecutor
 
 from surfigures.run import run_surfigures
@@ -30,8 +30,8 @@ def main(given_args, inputdir: Path, outputdir: Path):
 
     options = Options.from_args(given_args)
 
-    finder = InputFinder(input_dir=inputdir, output_dir=outputdir)
-    usable_mapper, skipped_inputs = zip(*finder.map(given_args.suffix, given_args.output))
+    mapper = SubjectMapper(input_dir=inputdir, output_dir=outputdir)
+    usable_mapper, skipped_inputs = zip(*mapper.map(given_args.suffix, given_args.output))
 
     skipped_inputs = list(filter(is_some, skipped_inputs))
     if skipped_inputs:
