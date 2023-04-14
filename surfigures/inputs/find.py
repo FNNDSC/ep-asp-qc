@@ -183,5 +183,5 @@ def _is_side_folder(folder: Path, side: str) -> bool:
 
 def _corresponding_right_path_to(path: Path) -> Optional[Path]:
     possible_paths = map(lambda l, r: path.with_name(path.name.replace(l, r)), constants.LEFT_WORDS, constants.RIGHT_WORDS)
-    existing_right_paths = filter(lambda f: f.exists(), possible_paths)
+    existing_right_paths = filter(lambda f: f.exists() and f != path, possible_paths)
     return next(existing_right_paths, None)
