@@ -36,10 +36,16 @@ class SubjectMapper:
         for maybe_inputs, sub_output in self._map_sided_and_everything_folders(data_file_suffix):
             try:
                 inputs = maybe_inputs.unwrap()
-                output_file = sub_output.with_name(output_template.replace('{}', inputs.title))
+                output_file = self._name_output_file(inputs.title, sub_output, output_template)
                 yield (inputs, output_file), None
             except InputError as e:
                 yield None, e
+
+    def _name_output_file(self, title: str, sub_output: Path, output_template: str) -> Path:
+        if sub_output == self.output_dir:
+            # handle in case inputdir is a subjects folder containing left and right hemis
+            return self.output_dir / output_template.replace('{}', title)
+        return sub_output.with_name(output_template.replace('{}', title))
 
     def _map_sided_and_everything_folders(self, data_file_suffix: str) -> Iterator[tuple[InputMonad[SubjectSet], Path]]:
         inputs_builder = _SubjectSetFinder(data_file_suffix)

@@ -1,5 +1,5 @@
 
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 DISPLAY_TITLE = r"""
        _                        __ _                           
