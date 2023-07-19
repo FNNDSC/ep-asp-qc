@@ -163,7 +163,7 @@ def _find_left_and_right_files(folder: Path, ext: str) -> Sequence[tuple[Path, P
     left_files = _find_side_files(folder, ext, constants.LEFT_WORDS)
     pairs = _find_right_files_for(left_files)
     return _validate_pairs(pairs)
-
+    
 
 def _is_left_folder_containing_obj(folder: Path) -> bool:
     return _contains_obj(folder) and _is_side_folder(folder, 'left')

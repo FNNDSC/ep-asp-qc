@@ -11,7 +11,7 @@ parser.add_argument('-s', '--suffix', default='.txt', type=str,
 parser.add_argument('-o', '--output', default='{}.png', type=str,
                     help='output file template and file type. "{}" is replaced by the subject name.')
 
-parser.add_argument('-r', '--range', default='.disterr.txt:-2.0:2.0,.smtherr.txt:0.0:2.0',
+parser.add_argument('-r', '--range', default='.disterr.txt:-2.0:2.0,.abs.disterr.txt:0.0:2.0,.smtherr.txt:0.0:2.0',
                     type=str, help='Ranges for specific file extensions.')
 parser.add_argument('--min', type=str, default='0.0', help='Default range minimum value')
 parser.add_argument('--max', type=str, default='10.0', help='Default range maximum value')
